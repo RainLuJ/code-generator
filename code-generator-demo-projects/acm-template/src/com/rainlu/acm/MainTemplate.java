@@ -1,4 +1,4 @@
-package com.rainlu.acm;
+package com.${module}.acm;
 
 import java.util.Scanner;
 
