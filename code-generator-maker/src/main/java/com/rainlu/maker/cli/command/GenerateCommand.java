@@ -1,8 +1,8 @@
-package com.rainlu.cli.command;
+package com.rainlu.maker.cli.command;
 
 import cn.hutool.core.bean.BeanUtil;
-import com.rainlu.generator.MainGenerator;
-import com.rainlu.model.MainTemplateConfig;
+import com.rainlu.maker.generator.file.MainGenerator;
+import com.rainlu.maker.model.DataModel;
 import lombok.Data;
 import picocli.CommandLine;
 
@@ -21,7 +21,7 @@ public class GenerateCommand implements Callable<Integer> {
     private String outputText = "sum = ";
 
     public Integer call() throws Exception {
-        MainTemplateConfig mainTemplateConfig = new MainTemplateConfig();
+        DataModel mainTemplateConfig = new DataModel();
         BeanUtil.copyProperties(this, mainTemplateConfig);
         System.out.println("配置信息：" + mainTemplateConfig);
         MainGenerator.doGenerate(mainTemplateConfig);

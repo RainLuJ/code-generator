@@ -1,4 +1,4 @@
-package com.rainlu.model;
+package com.rainlu.maker.model;
 
 import lombok.Data;
 
@@ -6,7 +6,7 @@ import lombok.Data;
  * 动态模版配置
  */
 @Data
-public class MainTemplateConfig {
+public class DataModel {
 
     /**
      * 是否生成循环

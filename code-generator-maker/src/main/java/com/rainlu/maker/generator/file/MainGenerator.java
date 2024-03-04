@@ -1,6 +1,6 @@
-package com.rainlu.generator;
+package com.rainlu.maker.generator.file;
 
-import com.rainlu.model.MainTemplateConfig;
+import com.rainlu.maker.model.DataModel;
 import freemarker.template.TemplateException;
 
 import java.io.File;
@@ -26,15 +26,15 @@ public class MainGenerator {
         String inputPath = new File(projectPath, "code-generator-demo-projects/acm-template").getAbsolutePath();
         String outputPath = projectPath;
         // 生成静态文件
-        StaticGenerator.copyFilesByRecursive(inputPath, outputPath);
+        StaticFileGenerator.copyFilesByHutool(inputPath, outputPath);
         // 生成动态文件（会覆盖先生成的静态同名文件）
         String inputDynamicFilePath = projectPath + File.separator + "code-generator-basic" + File.separator + "src/main/resources/templates/MainTemplate.java.ftl";
         String outputDynamicFilePath = outputPath + File.separator + "acm-template/src/com/rainlu/acm/MainTemplate.java";
-        DynamicGenerator.doGenerate(inputDynamicFilePath, outputDynamicFilePath, model);
+        DynamicFileGenerator.doGenerate(inputDynamicFilePath, outputDynamicFilePath, model);
     }
 
     public static void main(String[] args) throws TemplateException, IOException {
-        MainTemplateConfig mainTemplateConfig = new MainTemplateConfig();
+        DataModel mainTemplateConfig = new DataModel();
         mainTemplateConfig.setAuthor("rainlu");
         mainTemplateConfig.setLoop(false);
         mainTemplateConfig.setOutputText("求和结果：");
